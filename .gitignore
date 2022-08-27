@@ -1,10 +1,10 @@
-## main
-.vscode*
-.mypy_cache/*
+## This project
+*.vscode*
 
-## backend
+## Python
 *__pycache__*
-*.mypy_cache/*
+*.mypy_cache*
+
 
 ## frontend
 # build output
