@@ -1,10 +1,11 @@
 ## This project
 *.vscode*
 
+
 ## Python
 *__pycache__*
 *.mypy_cache*
-
+poetry.lock
 
 ## frontend
 # build output
