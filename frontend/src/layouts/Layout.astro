@@ -1,8 +1,8 @@
 ---
+import "@fontsource/dotgothic16"
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 import NavBar from '../components/navbar.vue'
-
 
 export interface Props {
   title: string;
@@ -16,9 +16,6 @@ const { title } = Astro.props as Props;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>

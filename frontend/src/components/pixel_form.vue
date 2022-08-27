@@ -1,5 +1,4 @@
 <script setup>
-import $ from "jquery";
 import ImgChooser from './utils/img-chooser.vue'
 import RelativeSquare from './utils/relative_sq.vue'
 import { Picture as IconPicture } from '@element-plus/icons-vue'
@@ -30,47 +29,65 @@ function make_color_code(color){
   let tx = 'color: '+color[1]+';'
   return bg+tx
 }
+
 function submit(){
-  let form_data = new FormData()
-  
-  for(let k in form){
-    form_data.append(k, form[k])
-  }
+  //check if choosed file is valid
   if(file.value == undefined || file.value.raw == undefined){
     ElMessage({
       message: 'You should choose a file!',
       type: 'warning',
     })
     return
+  }else if(file.value.raw.size > 20000000){
+    ElMessage({
+      message: 'File size over 20MB!',
+      type: 'warning',
+    })
+    return
+  }
+  
+  //build form
+  let form_data = new FormData()
+  for(let k in form){
+    form_data.append(k, form[k])
   }
   let raw_file = file.value.raw
   form_data.append('file', raw_file)
   
+  //read file data for showing original pic
   let fr = new FileReader();
-  fr.onload = ()=>{
-    src_list[1] = fr.result
-  }
+  fr.onload = ()=>{src_list[1] = fr.result}
   fr.readAsDataURL(raw_file);
   
-  $.ajax({
-    url: '/api/generate',
-    type: 'POST',
-    contentType: false,
-    processData: false,
-    data: form_data
-  }).done((resp)=>{
-    console.log(resp)
-    if(resp.status == 'ok'){
-      src_list[0] = resp.data.output_img
-      color_list.value = resp.data.colors
-    }else if(resp.status == 'Error'){
+  src_list[0] = ''
+  ElMessage('Generating...')
+  fetch('http://127.0.0.1:8000/api/generate',{
+    method: 'POST',
+    body: form_data
+  }).then((resp)=>{
+    if(!resp.ok){
       ElMessage({
-        message: 'Something Wrong!',
-        type: 'alarm'
+        message: 'Your request is failed!',
+        type: 'error'
       })
     }
-  }).fail((err)=>{
-    console.log(err)
+    return resp.json()
+  }).then((resp)=>{
+    switch (resp.status) {
+      case 'ok':
+        src_list[0] = resp.data.output_img
+        color_list.value = resp.data.colors
+        ElMessage({message: 'Done!', type: 'success'})
+        break;
+      case 'Error':
+        ElMessage({message: resp.Error, type: 'error'})
+        break;
+      default:
+        ElMessage({
+          message: 'Server Response is broken',
+          type: 'error'
+        })
+    }
   })
 }
 </script>
@@ -199,7 +216,7 @@ function submit(){
   margin: .1rem;
   width: 3.6rem;
   text-align: center;
-  font-size: .3rem;
+  font-size: 12px;
   border: 1px solid black;
 }
 

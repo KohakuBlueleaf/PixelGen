@@ -20,10 +20,10 @@
     "vue": "^3.2.37"
   },
   "dependencies": {
+    "@fontsource/dotgothic16": "^4.5.9",
     "@popperjs/core": "npm:@sxzz/popperjs-es@^2.11.6",
     "bootstrap": "^5.2.0",
     "element-plus": "^2.2.15",
-    "flamethrower-router": "^0.0.0-meme.9",
-    "jquery": "^3.6.0"
+    "flamethrower-router": "^0.0.0-meme.9"
   }
 }
