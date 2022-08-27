@@ -53,7 +53,7 @@ function submit(){
   fr.readAsDataURL(raw_file);
   
   $.ajax({
-    url: 'http://127.0.0.1:5000/api/generate',
+    url: '/api/generate',
     type: 'POST',
     contentType: false,
     processData: false,
