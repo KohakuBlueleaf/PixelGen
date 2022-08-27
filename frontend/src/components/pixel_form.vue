@@ -61,7 +61,7 @@ function submit(){
   
   src_list[0] = ''
   ElMessage('Generating...')
-  fetch('http://127.0.0.1:8000/api/generate',{
+  fetch('/api/generate',{
     method: 'POST',
     body: form_data
   }).then((resp)=>{
