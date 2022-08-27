@@ -8,7 +8,7 @@ title: PixelGen - About
 This project (PixelGen) is inspired by 
 [THIS](https://github.com/tsutsuji815/pixel_convert).
 
-[Github Link for this project]()
+[Github Link for this project](https://github.com/KohakuBlueleaf/PixelGen)
 
 ---
 ## built with
