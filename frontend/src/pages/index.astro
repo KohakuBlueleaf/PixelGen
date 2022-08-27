@@ -1,0 +1,17 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PixelFrom from '../components/pixel_form.vue'
+---
+
+
+<Layout title="PixelArt Generator">
+  <div class="container-fluid flex-grow-1" style='height: 100%; max-width: 1320px;'>
+    <div class='row justify-content-around'>
+      <PixelFrom client:only="vue"></PixelFrom>
+    </div>
+  </div>
+</Layout>
+
+
+<style>
+</style>

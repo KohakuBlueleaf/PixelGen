@@ -1,0 +1,29 @@
+{
+  "name": "pixelgen",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "devDependencies": {
+    "@astrojs/vue": "^1.0.0",
+    "@originjs/vite-plugin-commonjs": "^1.0.3",
+    "@rollup/plugin-commonjs": "^22.0.2",
+    "astro": "^1.0.9",
+    "astro-compress": "^1.0.5",
+    "unplugin-auto-import": "^0.11.2",
+    "unplugin-vue-components": "^0.22.4",
+    "vue": "^3.2.37"
+  },
+  "dependencies": {
+    "@popperjs/core": "npm:@sxzz/popperjs-es@^2.11.6",
+    "bootstrap": "^5.2.0",
+    "element-plus": "^2.2.15",
+    "flamethrower-router": "^0.0.0-meme.9",
+    "jquery": "^3.6.0"
+  }
+}

@@ -1,0 +1,29 @@
+## main
+.vscode*
+.mypy_cache/*
+
+## backend
+*__pycache__*
+*.mypy_cache/*
+
+## frontend
+# build output
+*dist/
+*.output/
+
+# dependencies
+*node_modules/
+
+# logs
+*npm-debug.log*
+*yarn-debug.log*
+*yarn-error.log*
+*pnpm-debug.log*
+
+
+# environment variables
+*.env
+*.env.production
+
+# macOS-specific files
+*.DS_Store

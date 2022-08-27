@@ -1,0 +1,57 @@
+---
+import 'bootstrap/dist/css/bootstrap.min.css'
+
+import NavBar from '../components/navbar.vue'
+
+
+export interface Props {
+  title: string;
+}
+
+const { title } = Astro.props as Props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <script type="module">
+      import flamethrower from 'https://esm.sh/v90/flamethrower-router'
+      flamethrower({ log: true, pageTransitions: true });
+    </script>
+  </head>
+  <body class='d-flex flex-column' style='min-height: 100vh;'>
+    <NavBar class='position-sticky top-0 w-100' style='z-index:1010'></NavBar>
+    <slot />
+  </body>
+</html>
+
+<style>
+  :root {
+    --font-size-base: clamp(1rem, 0.34vw + 0.91rem, 1.19rem);
+    --font-size-lg: clamp(1.2rem, 0.7vw + 1.2rem, 1.5rem);
+    --font-size-xl: clamp(2.44rem, 2.38vw + 1.85rem, 3.75rem);
+
+    --color-text: hsl(12, 5%, 4%);
+    --color-bg: hsl(10, 21%, 95%);
+    --color-border: hsl(17, 24%, 90%);
+  }
+
+  html {
+    font-family: system-ui, sans-serif;
+    font-size: var(--font-size-base);
+    color: var(--color-text);
+    background-color: var(--color-bg);
+  }
+
+  body {
+    margin: 0;
+  }
+</style>
