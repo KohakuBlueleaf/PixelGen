@@ -20,6 +20,7 @@
     "vue": "^3.2.37"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^1.0.0",
     "@fontsource/dotgothic16": "^4.5.9",
     "@popperjs/core": "npm:@sxzz/popperjs-es@^2.11.6",
     "bootstrap": "^5.2.0",

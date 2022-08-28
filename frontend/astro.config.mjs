@@ -7,6 +7,8 @@ import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 
 import vue from "@astrojs/vue";
+import sitemap from '@astrojs/sitemap';
+
 
 // https://astro.build/config
 export default defineConfig({
@@ -29,8 +31,10 @@ export default defineConfig({
       noExternal: ['element-plus']
     }
   },
+  site: 'https://pixelgen.kblueleaf.net',
   integrations: [
-    compress(), 
-    vue()
+    vue(),
+    compress(),
+    sitemap()
   ],
 });
