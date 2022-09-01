@@ -1,5 +1,5 @@
 <script setup>
-import { ref, reactive, watch, provide } from 'vue'
+import { ref } from 'vue'
 import { Picture as IconPicture } from '@element-plus/icons-vue'
 
 import RelativeSquare from './utils/relative_sq.vue'
