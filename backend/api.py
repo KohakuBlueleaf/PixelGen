@@ -6,7 +6,7 @@ import io
 from PIL import Image
 
 from werkzeug.datastructures import *
-from flask import Flask, request
+from flask import Flask, Blueprint, request
 from flask_cors import CORS
 
 from .pixelgen import make_dot
@@ -23,10 +23,10 @@ PARAM_LIMIT = {
 }
 
 
-app = Flask(
-    __name__
+bp = Blueprint(
+    'api',
+    __name__,
 )
-CORS(app)
 
 
 def image_process(img, settings):
@@ -75,7 +75,7 @@ def parse_form(
     return file, settings, None
 
 
-@app.route('/api/generate', methods=['POST'])
+@bp.route('/generate', methods=['POST'])
 def generate():
     data = request.form
     file = request.files
@@ -102,7 +102,3 @@ def generate():
             'colors': colors
         }
     }
-
-
-if __name__ == '__main__':
-    app.run('127.0.0.1', 5000)
