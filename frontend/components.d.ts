@@ -7,6 +7,7 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    Colors_list: typeof import('./src/components/colors_list.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElForm: typeof import('element-plus/es')['ElForm']
     ElFormItem: typeof import('element-plus/es')['ElFormItem']
@@ -23,6 +24,7 @@ declare module '@vue/runtime-core' {
     ElUpload: typeof import('element-plus/es')['ElUpload']
     ImgChooser: typeof import('./src/components/utils/img-chooser.vue')['default']
     Navbar: typeof import('./src/components/navbar.vue')['default']
+    Pic_viewer: typeof import('./src/components/pic_viewer.vue')['default']
     Pixel_form: typeof import('./src/components/pixel_form.vue')['default']
     Relative_sq: typeof import('./src/components/utils/relative_sq.vue')['default']
   }

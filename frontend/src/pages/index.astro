@@ -1,13 +1,24 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import PixelFrom from '../components/pixel_form.vue'
+import PixelForm from '../components/pixel_form.vue'
+import PicViewer from '../components/pic_viewer.vue'
+import ColorList from '../components/colors_list.vue'
 ---
 
 
 <Layout title="PixelArt Generator">
-  <div class="container-fluid flex-grow-1" style='height: 100%; max-width: 1320px;'>
+  <div class="container-fluid" style='height: 100%; max-width: 1320px;'>
     <div class='row justify-content-around'>
-      <PixelFrom client:only="vue"></PixelFrom>
+      <div class='col col-lg-4 col-12 d-flex'>
+        <PixelForm client:only="vue"></PixelForm>
+        <div class='flex-grow-1'></div>
+      </div>
+      <div class="col col-lg-5 col-12 d-flex">
+        <PicViewer client:load></PicViewer>
+      </div>
+      <div class="col col-lg-3 col-12">
+        <ColorList client:load></ColorList>
+      </div>
     </div>
   </div>
 </Layout>
