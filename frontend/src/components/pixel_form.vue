@@ -87,6 +87,7 @@ function submit(){
 
 <template>
   <el-form
+    style="max-width: 100%;"
     label-position = "top"
     label-width = "100px"
     :model = "form"
