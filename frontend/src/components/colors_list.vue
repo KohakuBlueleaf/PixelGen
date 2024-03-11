@@ -32,7 +32,6 @@ function make_color_code(color){
   margin-top: 3rem;
 }
 .color-tag{
-  border: white 1px solid;
   border-radius: .3rem;
   padding: .1rem;
   margin: .1rem;
